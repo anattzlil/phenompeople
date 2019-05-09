@@ -12,6 +12,14 @@ class BrandsSection extends React.Component {
         console.log('handleJobsButtonClick')
     }
 
+    handleArrowClick = (action) => {
+        console.log(action)
+    }
+
+    handleArrowClick = (action) => {
+        console.log(action)
+    }
+
     render(){
         return(
             <section className='brands_wrapper'>
