@@ -1,0 +1,116 @@
+@import '../../styles/mixin.scss';
+@import '../../styles/variables.scss';
+
+.search_wrapper {
+    @include basic-grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    background: $white;
+    height: auto;    
+    grid-template-rows: 1fr 2fr 1fr;
+    .search_form {
+        grid-column: 6 / 15;
+        grid-row: 1;
+        border-bottom: 1px solid $lighter-gray;
+        display: flex;
+        align-items: flex-end;
+        position: relative;
+        .search_input {
+            outline: none;
+            border: none;
+            width: 100%;
+            padding-bottom: 1rem;
+        }
+        .search_button {
+            @include init-button;
+            padding-bottom: 1rem;
+        }
+    }
+    .search_close_button {
+        grid-column: 17;
+        grid-row: 1;
+        background-color: transparent;
+        border: none;
+        align-self: start;
+        cursor: pointer;
+        outline: none;
+        color: #898989;
+        height: 100%;
+        &:hover{
+            color: $dark-gray;
+        }
+    }
+    .search_catagories {
+        grid-column: 6 / 15;
+        grid-row: 2;
+        line-height: 1.5rem;
+        padding-top: 1rem;
+        .search_catagories_headline {
+            font-family: ProximaNova-Semibold, sans-serif;
+            font-size: 0.7rem;
+            color: $lighter-gray;
+            text-transform: uppercase;
+        }
+        .search_catagories_list {
+            list-style: none;
+            font-family: ProximaNova-Bold, sans-serif;
+            font-size: 0.7rem;
+            color: $dark-gray;
+            cursor: pointer;
+            .search_catagories_item {
+                &.active {
+                    color: $dark-sky-blue;
+                    cursor: default;
+                }
+            }
+        }
+    }
+    .react-autosuggest__container {
+        width: 100%;
+    }
+    .react-autosuggest__suggestions-container--open {
+        position: absolute;
+        background-color: white;
+        width: 100%;
+        top: 110%;
+    }
+    .react-autosuggest__suggestions-list {
+        list-style: none;
+        font-family: ProximaNova-Light, sans-serif;
+        font-size: 0.85rem;
+        line-height: 1.5rem;
+        box-shadow: -2px 4px 9px 0px rgba(0,0,0,0.3);
+        max-height: 70%;
+    }
+    .react-autosuggest__suggestion--highlighted {
+        background-color: rgba(0,0,0,0.2);
+    }
+
+    .react-autosuggest__suggestion {
+        padding: 10px;
+    }
+}
+
+    .search_suggestions_container {
+        background-color: white;
+        position: absolute;
+        /* padding: 3% 1%; */
+        max-width: 500px;
+        min-width: 200px;
+        grid-column: 6 / 15;
+        z-index: 6;
+        grid-row: 2;
+        overflow: scroll;
+        top: 25%;
+        width: 100%;
+        height: fit-content;
+        max-height: 70%;
+        padding: 10px;
+        box-shadow: -2px 4px 9px 0px rgba(0,0,0,0.58);
+        & li {
+            font-family: ProximaNova-Light, sans-serif;
+            font-size: 0.85rem;
+            line-height: 1.5rem;
+        }
+    }
+
+

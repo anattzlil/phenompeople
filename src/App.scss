@@ -1,0 +1,87 @@
+
+@import 'styles/mixin';
+@import 'styles/variables';
+@include fontFace('ProximaNova-Light','resources/fonts/ProximaNova-Light');
+@include fontFace('ProximaNova-Regular','resources/fonts/ProximaNova-Regular');
+@include fontFace('ProximaNova-Bold','resources/fonts/ProximaNova-Bold');
+@include fontFace('ProximaNova-SemiboldIt','resources/fonts/ProximaNova-SemiboldIt');
+@include fontFace('ProximaNova-Black','resources/fonts/ProximaNova-Black');
+@include ttfFontFace('simple-joys','resources/fonts/simple-joys');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700');
+
+@import './components/Navbar/Navbar';
+// @import './components/TravelSection/TravelSection';
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	// transition: .2s ease-in;
+}
+
+.app-container {
+	width: 100%;
+	position:relative;
+	.app_header {
+		position: fixed;
+		top:0;
+		height:70px;
+		width:100%; 
+		background-color: $white;
+		z-index: 2;
+		.navbar_search_section {
+			&.open {
+				transform: translateY(350px);
+			}
+		}
+	}
+}
+
+.app-darken-page {
+	background-color: rgba(0, 0, 0, 0.66);
+	opacity: 1;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+	position: absolute;
+	animation-name: change-overlay-opacity;
+	animation-duration: .3s;
+	&.overlay-all-page {
+		background-color: rgba(0, 0, 0, 0.4);
+	}
+}
+
+@keyframes change-overlay-opacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.navbar_search_section {
+	position: absolute;
+	top: -300px;
+    z-index: 2;
+    width: 100%;
+    transition: all 1.5s ease;
+
+    &.open {
+		transform: translateY(370px);
+		-webkit-box-shadow: 2px 9px 14px -10px rgba(0,0,0,0.66);
+-moz-box-shadow: 2px 9px 14px -10px rgba(0,0,0,0.66);
+box-shadow: 2px 9px 14px -10px rgba(0,0,0,0.66);
+    }
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait){
+	.app-container{
+		.app_header {
+			height:50px;
+		}
+	}	
+}
+
+

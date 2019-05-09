@@ -1,0 +1,113 @@
+@import '../../styles/mixin.scss';
+@import '../../styles/variables.scss';
+
+.reviews_headline_grid {
+    @include basic-grid;
+    .reviews_headline {
+        grid-column: 2 / 18;
+        @include section-headline;
+        text-align: left;
+    }
+}
+.reviews_grid {
+    @include basic-grid;
+    .reviews_glassdor {
+        grid-column: 2 / 6;
+    }
+    .reviews_user_reviews_container {
+        grid-column: 9 / 18;
+        .reviewItem_user_wrapper {
+            padding-bottom: 5%;
+            .reviewItem_user_stars {
+                display: flex;
+                margin-right: 15px;
+                .star-icon {
+                    margin-right: 4.5%;
+                }
+            }
+            .reviewItem_user_title {
+                font-family: ProximaNova-Semibold, sans-serif;
+                font-size: 1.2vw;
+                color: #4a4a4a;
+                padding: 1% 0;
+            }
+            .reviewItem_user_date {
+                font-size: 0.8vw;
+                font-family: ProximaNova-Regular, sans-serif;
+                color: $light-gray;
+                margin-left: 1vw;
+                height: fit-content;
+
+            }
+            .reviewItem_user_position {
+                font-size: 1vw;
+                font-family: ProximaNova-Regular, sans-serif;
+                color: $light-gray;
+            }
+            .reviewItem_user_more {
+                cursor: pointer;
+                font-size: 1vw;
+                font-family: ProximaNova-Regular, sans-serif;
+                color: #4a4a4a;
+                text-decoration: underline;
+                &:hover {
+                    color: $twilight-blue;
+                }
+            }
+        }
+        .reviews_user_reviews_button {
+            background-color: $twilight-blue;
+            color: $white;
+            &:hover {
+                background-color: $twilight-blue-opacity-1;
+            }
+        }
+    }
+}
+
+.reviews_number {
+    font-family: ProximaNova-Regular, sans-serif;
+    font-size: 1.2vw;
+}
+.reviews_bold_number {
+    font-family: ProximaNova-Bold, sans-serif;
+    font-size: 1.2vw;
+}
+.reviews_field_wrapper {
+    padding-top: 2.5vw;
+    .reviews_glassdor_stars_container {
+        display: inline-block;
+    }
+    .reviews_field_title {
+        font-family: ProximaNova-Semibold, sans-serif;
+        font-size: 1.2vw;
+        padding: 0 0 3%;
+    }
+    .reviews_bar_container {
+        display: flex;
+        align-items: center;
+        .reviews_bar {
+                background: #eaeaea;
+                height: 10px;
+                width: 255px;
+                padding: 3px;
+                position: relative;
+            
+            .reviews_bar_filled {
+                    height: 100%;
+                    background: $yellow;
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+            }
+        }
+        .reviews_bold_number {
+            margin-left: 3%;
+        }
+    }
+}
+
+.reviewItem_user_stars_container {
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,127 @@
+@import '../../styles/mixin.scss';
+@import '../../styles/variables.scss';
+
+.footer_wrapper {
+    @include basic-grid;
+    grid-template-rows: repeat(3, 1fr) 1.5fr;
+    background-color: $footer-blue;
+    color: $white;
+    font-family: 'Source Sans Pro', sans-serif;
+    .footer_inner_wrapper {
+        grid-column: 3 / 18;
+        grid-row: 2 / 4;
+        position: relative;
+        left: -2%;
+        display: grid;
+        grid-template-columns: repeat(15, 4.38%);
+        grid-template-rows: auto;
+        grid-column-gap: 1.24%;
+        border-bottom: 1px solid rgba(256, 256, 256, .4);
+    }
+    .footer_phenome_people {
+        grid-column: 1 / 5;
+        .footer_company_logo {
+            width: 10vw;
+            padding-bottom: 1.5vw;
+        }
+        .footer_company_text {
+            font-size: 1.7vw;
+            opacity: .7;
+            line-height: 2.5vw;
+        }
+    } 
+    .footer_links {
+        grid-column: 6 / 16;
+        display: flex;
+        justify-content: space-evenly;
+        border-bottom: 1px solid rgba(256, 256, 256, .4);
+        padding-bottom: 7%;
+
+
+        .footer_links_section {
+            opacity: .8;
+            line-height: 3vw;
+        }
+        .footer_link_headline {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5vw;
+        }
+        .footer_link_list {
+            font-size: 1.5vw;
+            list-style: none;
+            li {
+                opacity: 0.4;
+            }
+            .footer_link_list_item_follow {
+                opacity: 1;
+                display: flex;
+                align-items: center;
+                span {
+                    opacity: .4
+                }
+                svg {
+                    margin-left: 1vw;
+                }
+            }
+        }
+    }
+    .footer_inner_footer {
+        grid-column: 3 / 18;
+        grid-row: 4;
+        display: flex;
+        opacity: .4;
+        font-size: 1.5vw;
+        height: 100%;
+        justify-content: start;
+        padding-top: 3vw;
+        position: relative;
+        left: -2%;
+        .footer_copyright {
+            margin-right: auto;
+        }
+        .footer_inner_footer_menu {
+            display: flex;
+            margin-left: auto;
+            list-style: none;
+            li {
+                margin-left: 3vw;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 800px){
+    .footer_wrapper{
+        .footer_phenome_people {
+            .footer_company_logo{
+                width: 80px;
+            }
+            .footer_company_text {
+                font-size: 13px;
+                line-height: 20px;
+            }
+        }
+        .footer_links {
+            .footer_link_headline {
+                font-size: 12px;
+            }
+            .footer_links_section {
+                line-height: 24px;
+                .footer_link_list {
+                    font-size: 12px;
+                    .footer_link_list_item_follow {
+                        svg {
+                            margin-left: 5px;
+                            width: 10px;
+                        }
+                    }
+                }
+            }
+        }
+        .footer_inner_footer {
+            font-size: 12px;
+            padding-top: 24px;
+        }
+    } 
+}

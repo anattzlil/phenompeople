@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+
+.stars_wrapper {
+    display: inline-block;
+    width: fit-content;
+    .star-icon {
+        position: relative;
+        margin-right: 3%;
+        font-size: 1.5vw;
+        .star-icon-half {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+}

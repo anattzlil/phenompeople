@@ -1,0 +1,178 @@
+@import '../../styles/mixin.scss';
+
+.benefits_grid {
+    @include basic-grid;
+    grid-template-rows:  15vw;
+    align-items: center;
+}
+.benefits_items_wrapper {
+    grid-column: 2 / 18;
+    grid-row: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    .benefits_item {
+        // transition: 1.5s ease;
+        font-family: ProximaNova-Bold;
+        font-size: 1.2vw;
+        position: relative; 
+        flex: none;
+        min-width: 17%;
+        max-width: 25%;
+        height: 100%;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        transition: .8s ease-in;
+        .benefits_item_main {
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            align-items: center;
+           .benefits_item_title {
+               display: block;
+               overflow: visible;
+               white-space: nowrap;
+               padding-top: 1vw;
+           }
+        }
+        .benefits_item_text {
+            font-family: ProximaNova-Regular;
+            font-size: 1vw;
+            overflow: hidden;
+            width: 0%;
+            white-space: nowrap;
+            display: none;
+            p {
+                max-width: 500px;
+                padding : 0 10px;
+            }
+
+        }
+        &:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;      
+            background-position: center bottom;
+            background-size: cover;
+            z-index: -1;
+          }
+          &.chosen{
+              transition: 0.5s ease-out;
+              max-width: 50%;
+              flex-grow: 1;
+              cursor: pointer;
+              color: #000;
+              .benefits_item_main {
+                animation-name: change-width;
+                animation-duration: .5s;
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                color: $twilight-blue;
+            }
+
+            .benefits_item_text {
+                overflow: auto;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                // max-width: 20vw;
+                display: flex;
+                white-space: inherit;
+                justify-content: center;
+                animation-duration: 01s;
+                animation-name: appear;
+            }
+          }
+    }
+}
+.benefits_headline {
+    @include section-headline;
+}
+
+@keyframes appear {
+    0% {
+        display: none;
+        opacity: 0; 
+        overflow: hidden;
+      }
+
+    50% {
+      display: none;
+      opacity: 0; 
+      overflow: hidden;
+    }
+    
+  
+    100% {
+        display: flex;
+        opacity: 1; 
+        // overflow: initial;
+    }
+  }
+
+  @keyframes change-width {
+    from {
+      width: 100%;
+    }
+  
+    to {
+        width: 50%;
+    }
+  }
+
+  @media only screen and (max-width: 768px) and (orientation: portrait) {
+    .benefits_headline {
+        @include section-headline-mobile
+    }
+    .benefits_grid {
+        grid-template-rows: repeat(4, 1fr);
+    }
+    .benefits_items_wrapper {
+        height: 10vh;
+        flex-wrap: wrap;
+        width: 100%;
+        .benefits_item {
+            max-width: 100%;
+            flex-grow: initial;
+            .benefits_item_main {
+                width: 20%;
+            }
+            .benefits_item_text {
+                width: 100%;
+                white-space: initial;
+                display: flex;
+                p {
+                    margin: auto;
+                    font-size: 2vw;
+                    max-width: 100%;
+                    padding:0;
+                }
+            }
+        }
+        .benefits_item.chosen {
+            max-width: 100%;
+            flex-grow: initial;
+            .benefits_item_main {
+                width: 20%;
+            }
+            .benefits_item_text {
+                width: 100%;
+                white-space: initial;
+                p {
+                    margin: auto;
+                    font-size: 2vw;
+                    max-width: 100%;
+                    padding:0;
+                }
+            }
+        }
+    }
+  }

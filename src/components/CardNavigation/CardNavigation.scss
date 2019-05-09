@@ -1,0 +1,17 @@
+.card_nav_icons {
+    display: flex;
+    justify-content: center;
+    align-self: flex-start;
+    padding-top: 1.5vw;
+    .card_nav_icon {
+        width: .6vw;
+        height: .6vw;
+        transform: rotate(-315deg);
+        border: 0.5px solid white;
+        margin: 0 .4vw;
+        &.filled{
+            background-color: #ffffff;
+            border: none;
+        }
+    }
+} 

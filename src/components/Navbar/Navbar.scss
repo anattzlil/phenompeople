@@ -1,0 +1,127 @@
+@import '../../styles/mixin.scss';
+@import '../../styles/variables.scss';
+
+.navbar_outer_wrapper {
+    font-size: 20px;
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    background: white;
+    height: 70px;
+}
+
+.navbar_wrapper {
+    @include basic-grid;
+    grid-template-rows: 1fr;
+    font-family: ProximaNova-Light, sans-serif;
+    align-items: center;
+    z-index: 5;
+    background-color: $white;
+    .navbar-logo {
+        grid-column: 2 / 3;
+        padding: 1em 0;
+    }
+    .side-bar-menu-container {
+        display: none;
+    }
+    .navbar_search_icon_container {
+        display: none;
+    }
+    .navbar_menu_icon {
+        display: none;
+    }
+}
+.navbarList_user {
+    grid-column: 13 / 18;
+    list-style: none;
+    display: flex;
+    font-size: 1vw;
+    justify-content: flex-end;
+    justify-self: end;
+    width: 100%;
+    .navbarList_item {
+        margin-left: 5%;
+        &:hover {
+            color: $twilight-blue;
+            cursor: pointer;
+        }
+    }
+}
+.navbarList_company {
+    grid-column: 5 / 13;
+    list-style: none;
+    display: flex;
+    font-family: ProximaNova-Regular, sans-serif;
+    font-size: 1.3vw;
+    justify-content: flex-start;
+    justify-self: start;
+    width: 100%;
+    .navbarList_item {
+        margin-right: 5%;
+        &:hover {
+            color: $twilight-blue;
+            cursor: pointer;
+        }
+    }
+
+}
+
+.navbarList_item {
+    display: flex;
+    
+    .navbarList_item_icon{
+        height: 1vw;
+        width: auto;
+        padding-right: 1vw;    
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .navbarList_user {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1380px) {
+    .navbarList_company {
+        font-size: 18px;
+    }
+}
+
+@media only screen and  (max-width: 768px) and (orientation: portrait){
+	.navbar_outer_wrapper {
+        height: 50px;
+        .navbar_wrapper {
+            .navbar-logo {
+                grid-column: 8 / 12;
+                padding: 0;
+            }
+            .navbar_menu_icon {
+                @include init-button;
+                display: flex;
+                grid-column: 2;
+                grid-row: 1;
+                align-self: center;
+                cursor: pointer;
+            }
+            .navbar_search_icon_container {
+                display: flex;
+                grid-column: 17;
+                grid-row: 1;
+                align-self: center;
+                cursor: pointer;
+                svg {
+                    width: 3vw;
+                }
+
+            }
+            .navbarList_company {
+                display: none;
+            }
+            .navbarList_user {
+                display: none;
+            }
+        }
+    }
+}
